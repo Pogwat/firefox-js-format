@@ -16,17 +16,17 @@ Just go to release and download precompiled binary
 Or build it locally with Cargo: 
 
 Clone repo \
-```
+```bash
 git clone https://github.com/Pogwat/firefox-js-format 
 ```
 
 Move into Directory \
-```
+```bash
 cd firefox-js-format 
 ```
 
 Build Contents of src using cargo \
-```
+```bash
 cargo build --release
 ```
 
