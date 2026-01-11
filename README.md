@@ -17,7 +17,7 @@ cargo build
 
 Or use Nix packging and toolchain:
 
-contents of ./ff-format-packge.nix: \
+contents of ./ff-format-packge.nix: 
 
 { rustPlatform, lib, fetchFromGitHub }: \
 rustPlatform.buildRustPackage rec { \
@@ -41,18 +41,18 @@ rustPlatform.buildRustPackage rec { \
      maintainers = with lib.maintainers;  [];  \
      mainProgram = "ff-format"; \
    }; \
- } \
+ } 
 
-contents of ./overlay.nix in same directoy:     \   
+contents of ./overlay.nix in same directoy:        
  { config, pkgs, ... }: { \
- nixpkgs.overlays = [ \
+ nixpkgs.overlays = [ 
  
 (final: prev: { \
   ff-format = final.callPackage ./ff-format-packge.nix {}; \
- })  \
+ })  
  
  
- ]; \
+ ]; 
  
  
  
@@ -61,10 +61,10 @@ contents of ./overlay.nix in same directoy:     \
  environment.systemPackages = with pkgs; [ \
    ff-format  \
    ]; \
- } \
+ } 
 
 under configuration.nix put: 
- imports = [path/to/overlays.nix]; \
+ imports = [path/to/overlays.nix]; 
 
 
 
