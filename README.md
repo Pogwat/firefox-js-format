@@ -16,13 +16,19 @@ Just go to release and download precompiled binary
 Or build it locally with Cargo: 
 
 Clone repo \
+```
 git clone https://github.com/Pogwat/firefox-js-format 
+```
 
 Move into Directory \
+```
 cd firefox-js-format 
+```
 
 Build Contents of src using cargo \
+```
 cargo build --release
+```
 
 ### Nix Packaging
 Or use Nix packging and toolchain:
