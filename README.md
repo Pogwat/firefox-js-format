@@ -15,17 +15,17 @@ Just go to release and download precompiled binary
 ### Cargo Compilation
 Or build it locally with Cargo: 
 
-Clone repo \
+Clone repo 
 ```bash
 git clone https://github.com/Pogwat/firefox-js-format 
 ```
 
-Move into Directory \
+Move into Directory 
 ```bash
 cd firefox-js-format 
 ```
 
-Build Contents of src using cargo \
+Build Contents of src using cargo 
 ```bash
 cargo build --release
 ```
@@ -63,11 +63,11 @@ rustPlatform.buildRustPackage rec {
 
 contents of ./overlay.nix in same directoy:  
 ```nix      
- { config, pkgs, ... }: { \
+ { config, pkgs, ... }: { 
  nixpkgs.overlays = [ 
  
-(final: prev: { \
-  ff-format = final.callPackage ./ff-format-packge.nix {}; \
+(final: prev: { 
+  ff-format = final.callPackage ./ff-format-packge.nix {}; 
  })  
  
  
@@ -77,9 +77,9 @@ contents of ./overlay.nix in same directoy:
  
 
 
- environment.systemPackages = with pkgs; [ \
-   ff-format  \
-   ]; \
+ environment.systemPackages = with pkgs; [ 
+   ff-format  
+   ]; 
  } 
 ```
 
