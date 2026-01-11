@@ -8,7 +8,6 @@ ff-format [input_file] [output_file]
 no --help or complex cli arguments right now
 
 ## Installation
-Downlaod the binary from releases 
 
 ### Precompiled Binaries
 Just go to release and download precompiled binary
