@@ -11,8 +11,8 @@ no --help or complex cli arguments right now
 Downlaod the binary from releases 
 
 Or build it locally with Cargo:
-git clone https://github.com/Pogwat/firefox-js-format
-cd firefox-js-format 
+git clone https://github.com/Pogwat/firefox-js-format \
+cd firefox-js-format \
 cargo build
 
 Or use Nix packging and toolchain:
