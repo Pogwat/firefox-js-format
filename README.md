@@ -10,40 +10,54 @@ no --help or complex cli arguments right now
 ## Installation
 Downlaod the binary from releases 
 
-Or build it locally with Cargo:
-git clone https://github.com/Pogwat/firefox-js-format \
-cd firefox-js-format \
-cargo build
+### Precompiled Binaries
+Just go to release and download precompiled binary
 
+### Cargo Compilation
+Or build it locally with Cargo: 
+
+Clone repo \
+git clone https://github.com/Pogwat/firefox-js-format 
+
+Move into Directory \
+cd firefox-js-format 
+
+Build Contents of src using cargo \
+cargo build --release
+
+### Nix Packaging
 Or use Nix packging and toolchain:
 
 contents of ./ff-format-packge.nix: 
-
-{ rustPlatform, lib, fetchFromGitHub }: \
-rustPlatform.buildRustPackage rec { \
-  pname = "ff-format"; \
- version = "0.1.0"; \
-  src =  fetchFromGitHub { \
-    owner = "Pogwat"; \
-    repo = "firefox-js-format"; \
-    rev = "v${version}"; \
+```nix
+{ rustPlatform, lib, fetchFromGitHub }: 
+rustPlatform.buildRustPackage rec { 
+  pname = "ff-format"; 
+ version = "0.1.0"; 
+  src =  fetchFromGitHub { 
+    owner = "Pogwat"; 
+    repo = "firefox-js-format"; 
+    rev = "v${version}"; 
     hash = "sha256-0yX233J53vWp4/grtDesVxwa0kamOM8MUI6WOidyzGE="; \
-   }; \
-   cargoLock = { \
-     lockFile = "${src}/Cargo.lock"; \
-   }; \
-  \
-   meta = { \
-     description = "firefox user.js -> nix attributes "; \
-     homepage = "https://github.com/Pogwat/firefox-js-format/"; \
-     license = lib.licenses.gpl3Only; \
-     platforms = lib.platforms.linux; \
-     maintainers = with lib.maintainers;  [];  \
-     mainProgram = "ff-format"; \
-   }; \
+   }; 
+   cargoLock = { 
+     lockFile = "${src}/Cargo.lock"; 
+   }; 
+  
+   meta = { 
+     description = "firefox user.js -> nix attributes "; 
+     homepage = "https://github.com/Pogwat/firefox-js-format/"; 
+     license = lib.licenses.gpl3Only; 
+     platforms = lib.platforms.linux; 
+     maintainers = with lib.maintainers;  [];  
+     mainProgram = "ff-format"; 
+   }; 
  } 
+```
 
-contents of ./overlay.nix in same directoy:        
+
+contents of ./overlay.nix in same directoy:  
+```nix      
  { config, pkgs, ... }: { \
  nixpkgs.overlays = [ 
  
@@ -62,9 +76,12 @@ contents of ./overlay.nix in same directoy:
    ff-format  \
    ]; \
  } 
+```
 
 under configuration.nix put: 
+```nix 
  imports = [path/to/overlays.nix]; 
+ ```
 
 
 
